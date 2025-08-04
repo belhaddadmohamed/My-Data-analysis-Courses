@@ -51,7 +51,22 @@ group by `month`
 order by 1 asc
 ) 
 select `month`, total_off, sum(total_off) over(order by `month`) as rolling_num
-from rolling_total
+from rolling_total;
+
+-- Ranking the most laid_off company
+with ranked_laid_off (company, years, total_laid_off) as ( 
+select company, year(`date`), sum(total_laid_off)
+from layoffs_staging2
+group by company, year(`date`)
+)
+select *, dense_rank() over(partition by years order by total_laid_off desc) as ranked_laid_off
+from ranked_laid_off
+where years is not null;
+
+
+
+
+
 
 
 
