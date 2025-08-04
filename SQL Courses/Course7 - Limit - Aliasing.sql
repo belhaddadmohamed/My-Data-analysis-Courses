@@ -14,4 +14,5 @@ select occupation, avg(salary) avg_salary
 from employee_salary
 where occupation like '%manager%'
 group by occupation
-having avg_salary>75000;
+having avg_salary > 75000;
+
