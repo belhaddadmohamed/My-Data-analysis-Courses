@@ -13,7 +13,7 @@ join employee_salary s
 	on d.employee_id = s.employee_id;
     
     
--- Rolling Total = Cumulative Sum
+-- Rolling Total = Running Total = Cumulative Sum
 select d.first_name, gender, salary, sum(s.salary) over(partition by gender order by d.employee_id) 'Rolling_Total'
 from employee_demographics d
 join employee_salary s
