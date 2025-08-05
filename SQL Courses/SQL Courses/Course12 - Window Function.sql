@@ -21,10 +21,13 @@ join employee_salary s
     
 
 -- Using Aggregate function: row_number(), rank(), dense_rank() 
+-- row_number() = Assigns a unique sequential integer to rows within a partition of a result set
+-- rank() = Assigns a unique rank to each distinct row within a partition of a result set
+-- dense_rank() = Similar to rank(), but does not leave gaps in the ranking sequence (when there are ties).
 select d.employee_id, d.first_name, gender, salary, 
-row_number() over(partition by gender) as row_num,
-rank() over(partition by gender order by salary desc) as rank_num,
-dense_rank() over(partition by gender order by salary desc) as dense_rank_num
+	row_number() over(partition by gender) as row_num,
+	rank() over(partition by gender order by salary desc) as rank_num,
+	dense_rank() over(partition by gender order by salary desc) as dense_rank_num
 from employee_demographics d
 join employee_salary s
 	on d.employee_id = s.employee_id;
