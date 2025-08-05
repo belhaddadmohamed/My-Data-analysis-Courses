@@ -5,7 +5,7 @@ join employee_salary s
 	on d.employee_id = s.employee_id
 group by gender;
 
--- Without Window Function
+-- Using Window Function
 -- We can use another fields rather than just 'gender'
 select d.first_name, gender, salary, avg(s.salary) over(partition by gender)
 from employee_demographics d
