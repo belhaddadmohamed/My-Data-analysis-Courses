@@ -1,0 +1,38 @@
+1- Relationships:
+
+
+
+================================================
+2- DAX:  (DAX أو Data Analysis Expressions )
+هي لغة صيغ ومعادلات تُستخدم في Power BI و Excel Power Pivot و SQL Server Analysis Services (SSAS Tabular) لكتابة عمليات حسابية متقدمة على البيانات.
+
+وظيفتها:
+- إنشاء أعمدة محسوبة (Calculated Columns).
+- إنشاء مقاييس/مؤشرات (Measures) مثل المجموع، المتوسط، النسبة المئوية...
+- القيام بتحليلات زمنية (Time Intelligence) مثل مقارنة المبيعات بين السنوات أو حساب القيم التراكمية.
+- تصفية البيانات بشكل ديناميكي.
+
+ الفرق بينها وبين صيغة Excel
+Excel: يعمل على صف واحد في كل مرة.
+DAX: يعمل على جداول وعلاقات، ويمكنه استخدام النماذج متعددة الجداول (Data Model).
+
+SUMX(Table, Expression):
+الخاصية			SUM		 SUMX 
+العمل على		عمود واحد جدول أو تعبير
+الحساب قبل الجمع	❌ 		 ✅  
+الأداء				أسرع	 أبطأ قليلاً إذا كان الجدول كبير 
+---------------------------------------------------------------------------------
+SUMXمناسبة لحساب المجاميع المعتمدة على أكثر من عمود.
+SUMX(Sales, Sales[Qty] * Sales[Price])
+
+
+
+================================================
+3- Drill Down:
+drill down lets you explore data at different levels of a hierarchy .
+e.g., Year → Quarter → Month → Day
+e.g, Customer -> Units_Sold -> Order_ids
+
+================================================
+4-Conditional Formatting:
+Note: To use Data Bars you need to summarize the data
